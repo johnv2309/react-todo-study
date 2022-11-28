@@ -10,8 +10,29 @@ import light from "./styles/themes/light";
 import dark from "./styles/themes/dark";
 
 export function App() {
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? dark : light
+  );
   const [todos, setTodos] = useState<TodoType[]>([]);
+  const locale = [
+    {
+      language: "pt-BR",
+      title: "Qual a tarefa?",
+      placeholder: "Adicione uma nova tarefa",
+    },
+    {
+      language: "en-US",
+      title: "What is the task?",
+      placeholder: "Add a new task",
+    },
+  ];
+
+  let placeholderId = locale.findIndex(
+    (placeholder) => placeholder.language === window.navigator.language
+  );
+
+  const lang = locale[placeholderId]?.placeholder || locale[0].placeholder;
+  const title = locale[placeholderId]?.title || locale[0].title;
 
   useEffect(() => {
     const local = localStorage.getItem("tasks");
@@ -62,8 +83,8 @@ export function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header toggleTheme={handleTheme} />
-        <TodoForm addTask={handleAddTask} />
+        <Header toggleTheme={handleTheme} headerTitle={title} />
+        <TodoForm addTask={handleAddTask} lang={lang} />
         {todos.map((task) => (
           <Todo
             key={task.id}

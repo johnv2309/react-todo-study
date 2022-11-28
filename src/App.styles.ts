@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.cardBackground};
   border-radius: 4px;
-  box-shadow: 2px 2px 2px 2px ${(props) => props.theme.colors.cardBackground};
+  box-shadow: 2px 2px 2px 2px ${(props) => props.theme.colors.shadow};
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

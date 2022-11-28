@@ -5,11 +5,12 @@ import { shade } from "polished";
 import Switch from "react-switch";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 
-interface ThemeProps {
+type ThemeProps = {
   toggleTheme(): void;
-}
+  headerTitle: string;
+};
 
-export const Header: React.FC<ThemeProps> = ({ toggleTheme }) => {
+export const Header = ({ toggleTheme, headerTitle }: ThemeProps) => {
   const { title, colors } = useContext(ThemeContext);
   function handleThemeToggle() {
     toggleTheme();
@@ -18,7 +19,7 @@ export const Header: React.FC<ThemeProps> = ({ toggleTheme }) => {
     <HeaderContainer>
       <h2>
         <BookOpenIcon width={32} height={24} />
-        What to do?
+        {headerTitle}
       </h2>
       <Switch
         onChange={handleThemeToggle}

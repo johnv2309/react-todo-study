@@ -15,7 +15,7 @@ The user can create tasks, set them as complete, and delete. Any change is saved
 ## Where can I find it?
 
 - Repository - [Github](https://github.com/johnv2309/todo-study)
-- Live website - [Netlify](https://google.com/)
+- Live website - [Netlify](https://johnv2309-react-todo.netlify.app/)
 
 ## Screenshots
 

@@ -31,8 +31,8 @@ export function App() {
     (placeholder) => placeholder.language === window.navigator.language
   );
 
-  const lang = locale[placeholderId]?.placeholder || locale[0].placeholder;
-  const title = locale[placeholderId]?.title || locale[0].title;
+  const lang = locale[placeholderId]?.placeholder || locale[1].placeholder;
+  const title = locale[placeholderId]?.title || locale[1].title;
 
   useEffect(() => {
     const local = localStorage.getItem("tasks");

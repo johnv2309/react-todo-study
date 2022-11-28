@@ -21,6 +21,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: ${(props) => props.theme.colors.bodyBackground};
 }
 
 img,
@@ -54,7 +55,6 @@ h6 {
   height: 100%;
   display: flex;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.bodyBackground};
   font-family: "Roboto", sans-serif;
 }
 `;
